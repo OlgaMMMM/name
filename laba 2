@@ -1,0 +1,151 @@
+#include <iostream>
+using namespace std;
+class Ccomplex {
+private:
+	int Re = 0;
+	int Im = 0;
+	int Re_1 = 0;
+	int Im_1 = 0;
+	int Re_2 = 0;
+	int Im_2 = 0;
+	int own = 0;
+
+
+public:
+	Ccomplex() {
+	};
+	Ccomplex(int a) {
+		own = a;
+	};
+	Ccomplex(int a,int b) {
+		Re = a;
+		Im = b;
+	};
+	Ccomplex(int complexRe_1, int complexRe_2, int complexIm_1, int complexIm_2) {
+		Re_1 = complexRe_1;
+		Im_1 = complexIm_1;
+		Re_2 = complexRe_2;
+		Im_2 = complexIm_2;
+	};
+	void Com() {
+		cout << Re;
+		cout << ",";
+		cout << Im;
+
+	};
+	Ccomplex operator +( Ccomplex &P) {
+		Ccomplex ComPlex;
+		
+	    ComPlex.Re = Re_1 + P.Re;
+		ComPlex.Im = Im_1 + P.Im;
+		
+		return ComPlex;
+	};
+	friend ostream& operator <<(ostream& stream, const Ccomplex& p);
+
+};
+ ostream& operator <<(ostream& stream, const Ccomplex &p) {
+	 stream << p.own;
+	 return stream;
+};
+
+
+	int main()
+	{
+		int Choose1;
+		cout << "complex number = " << "Re + Imi" << endl;
+		int complexRe_1;
+		int complexIm_1;
+		int complexRe_2;
+		int complexIm_2;
+		cout << "Enter Re:" << endl;
+		cin >> complexRe_1;
+		cout << "Enter Im:" << endl;
+		cin >> complexIm_1;
+		if (complexIm_1 > 0)
+			cout << "Your first number is " << complexRe_1 << "+" << complexIm_1 << "i" << endl;
+		else
+			if (complexIm_1 < 0)
+				cout << "Your first number is " << complexRe_1 << complexIm_1 << "i" << endl;
+			else
+				cout << "Your first number is " << complexRe_1 << endl;
+		cout << "Enter Re:" << endl;
+		cin >> complexRe_2;
+		cout << "Enter Im:" << endl;
+		cin >> complexIm_2;
+		if (complexIm_2 > 0)
+			cout << "Your second number is " << complexRe_2 << "+" << complexIm_2 << "i" << endl;
+		else
+			if (complexIm_2 < 0)
+				cout << "Your first number is " << complexRe_2 << complexIm_2 << "i" << endl;
+			else
+				cout << "Your first number is " << complexRe_2 << endl;
+		cout << "Choose 1 - 6:" << endl;;
+		cout << "1.Complex1+Complex2" << endl;
+		cout << "2.Complex1-Complex2" << endl;
+		cout << "3.Complex1*Complex2" << endl;
+		cout << "4.Complex1/Complex2" << endl;
+		cout << "5.Complex1=Complex2" << endl;
+		cout << "6.Complex1==Complex2" << endl;
+		Ccomplex(complexRe_1, complexRe_2, complexIm_1, complexIm_2);
+		Ccomplex Re1(complexRe_1);
+		Ccomplex Re2(complexRe_2);
+		Ccomplex Im1(complexIm_1);
+		Ccomplex Im2(complexIm_2);
+		Ccomplex Re2Im2(complexRe_2, complexIm_2);
+		Ccomplex complexRe;
+		Ccomplex complexIm;
+
+		cout << "Your answer:";
+		cin >> Choose1;
+		switch (Choose1)
+		{
+		case 1:
+			complexRe = Re1 + Re2;
+			complexIm = Im1 + Im2;
+			 
+			cout << "(";
+			cout << complexRe;
+				cout<<complexIm;
+			
+			
+			cout << ")" << "- your new copmlex number";
+			break;
+		case 2:
+
+			cout << "(";
+			cout << ",";
+
+			cout << ")" << "- your new copmlex number";
+			break;
+		case 3:
+
+			cout << "(";
+
+			cout << ",";
+
+			cout << ")" << "- your new copmlex number";
+			break;
+		case 4:cout << "(";
+
+			cout << ",";
+
+			cout << ")" << "- your new copmlex number";
+			break;
+		case 5:cout << "(";
+
+			cout << ",";
+
+			cout << ")" << "- your new copmlex number";
+			break;
+		case 6:cout << "(";
+
+			cout << ",";
+
+			cout << ")" << "- your new copmlex number";
+			break;
+		default:
+			cout << "is unknown" << endl;
+		};
+		return 0;
+	};
